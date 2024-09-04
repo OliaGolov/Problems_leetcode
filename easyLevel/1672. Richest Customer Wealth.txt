@@ -1,0 +1,34 @@
+#1672
+
+You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
+
+A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+
+SOLUTION:
+
+accounts = [[1,5],[7,3],[3,5]]
+
+function getWealth(accounts) {
+    let sumInSubarr = 0;
+    let wealth = [];
+    for (let i = 0; i < accounts.length; i++) {
+        for (let j = 0; j < accounts[i].length; j++) {
+            sumInSubarr += accounts[i][j]
+        }
+        wealth.push(sumInSubarr)
+        sumInSubarr = 0;
+    }
+    let max = wealth[0];
+    for (i = 0; i < wealth.length; i++) {
+        if (wealth[i] > max) {
+            max = wealth [i]
+        }
+    }
+    return max;
+}
+
+console.log(getWealth(accounts))
+
+MAIN DIFFICULTY AND NOTES:
+Looping through arrays of array
+Aslo possible to use js method math.max()

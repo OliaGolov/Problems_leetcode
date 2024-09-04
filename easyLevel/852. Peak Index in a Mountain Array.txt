@@ -1,0 +1,31 @@
+#852
+
+Let's call an array arr a mountain if the following properties hold:
+    • arr.length >= 3 
+    • There exists some i with 0 < i < arr.length - 1 such that: 
+        ◦ arr[0] < arr[1] < ... arr[i-1] < arr[i] 
+        ◦ arr[i] > arr[i+1] > ... > arr[arr.length - 1] 
+Given an integer array arr that is guaranteed to be a mountain, return any i such that arr[0] < arr[1] < ... arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1].
+Input: arr = [24,69,100,99,79,78,67,36,26,19]
+Input: arr = [0,1,0]
+
+
+
+Nums = [-1,0,3,5,9,12]
+
+function findPeak(arr) {
+let middle = Math.floor(arr.length / 2);
+
+while (middle !== 1 || middle !== arr.length - 2) {
+if (arr[middle] > arr[middle - 1] && arr[middle] > arr[middle + 1]) {
+return middle;
+}
+if (arr[middle] < arr[middle - 1]) {
+middle = Math.floor(middle / 2);
+} else {
+middle = Math.floor(middle + (arr.length - middle) / 2);
+}
+}
+return middle;
+}
+console.log(findPeak(arr));
