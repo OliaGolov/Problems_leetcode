@@ -1,15 +1,17 @@
-let x = '121'
-let y = -121
+var isPalindrome = function (x) {
+  let newNumber = x;
+  let reverse = 0;
 
-let backwordX = ''
-let i = 0
-for (i = x.length - 1; i >= 0; i--) {
-    
-    backwordX +=x[i]
-}
+  while (newNumber > 0) {
+    let digit = newNumber % 10;
+    reverse = digit + reverse * 10;
+    newNumber = parseInt(newNumber / 10);
+  }
 
-for (let i = 0; i < x.length -1; i++) {
-    for (let j = 0; j < x.length -1; j++) {
-        if ()
-    }
-}
+  if (reverse === x) {
+    return true;
+  }
+
+  return false;
+};
+console.log(isPalindrome(1245421));
